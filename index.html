@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wetherspoons: A Complete Guide to Pubs, Food, and Drinks</title>
+<meta name="description" content="A complete guide to Wetherspoons pubs: what it is, what's on the menu, how app ordering works, and tips for getting the most from your visit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0d3b2e;
+  --green-2:#14573f;
+  --green-soft:#e6f0ea;
+  --amber:#e8a317;
+  --amber-dark:#b87a00;
+  --ink:#1b2420;
+  --muted:#53625a;
+  --paper:#fbfaf6;
+  --white:#ffffff;
+  --line:#dbe3dd;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.75;font-size:17px;width:100%;overflow-x:hidden}
+h1,h2,h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;color:var(--green);line-height:1.2}
+a{color:var(--green-2);font-weight:700;text-decoration-color:var(--amber);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:var(--amber-dark)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Header (single line) */
+header.site{position:sticky;top:0;z-index:50;background:var(--green);border-bottom:3px solid var(--amber)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px;flex-wrap:nowrap}
+.brand{font-family:'Fraunces',serif;font-weight:800;font-size:1.45rem;color:#fff;text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
+.brand:hover{color:#fff}
+.brand .dot{width:12px;height:12px;border-radius:50%;background:var(--amber);display:inline-block}
+nav.main{display:flex;gap:6px;align-items:center;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{color:#e9f3ee;text-decoration:none;font-weight:600;font-size:.95rem;padding:8px 12px;border-radius:8px}
+nav.main a:hover{background:rgba(255,255,255,.12);color:#fff}
+nav.main a.cta{background:var(--amber);color:#1b1500;font-weight:700}
+nav.main a.cta:hover{background:#ffbb2e;color:#1b1500}
+
+/* Hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(232,163,23,.22),transparent 60%),linear-gradient(135deg,var(--green) 0%,var(--green-2) 100%);color:#fff;padding:84px 0 96px}
+.hero h1{color:#fff;font-size:clamp(2.1rem,5vw,3.6rem);font-weight:800;max-width:860px;margin-bottom:22px}
+.hero p.lead{font-size:1.15rem;color:#e3efe9;max-width:780px;margin-bottom:16px}
+.hero p.lead a{color:var(--amber);text-decoration-color:var(--amber)}
+.hero p.lead a:hover{color:#ffd37a}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;transition:transform .15s ease,background .15s ease}
+.btn-primary{background:var(--amber);color:#1b1500}
+.btn-primary:hover{background:#ffbb2e;color:#1b1500;transform:translateY(-2px)}
+.btn-ghost{border:2px solid rgba(255,255,255,.55);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);padding:8px 16px;border-radius:999px;font-size:.92rem;font-weight:600}
+
+/* Layout */
+main{width:100%}
+section.block{padding:72px 0}
+section.block.alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section.green{background:var(--green);color:#e6f0ea}
+section.green h2,section.green h3{color:#fff}
+.sec-head{max-width:760px;margin-bottom:38px}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:14px}
+.sec-head p{color:var(--muted)}
+.prose{max-width:860px}
+.prose p{margin-bottom:18px}
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;border-top:4px solid var(--amber)}
+.card h3{font-size:1.25rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:1rem}
+.alt .card{background:var(--paper)}
+.callout{background:var(--green-soft);border-left:5px solid var(--green-2);padding:20px 24px;border-radius:0 var(--radius) var(--radius) 0;margin-top:22px}
+.callout strong{color:var(--green)}
+
+/* About split */
+.split{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
+.facts{background:var(--green);color:#e6f0ea;border-radius:var(--radius);padding:32px}
+.facts h3{color:#fff;margin-bottom:16px;font-size:1.3rem}
+.facts dl div{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.facts dl div:last-child{border-bottom:0}
+.facts dt{color:var(--amber);font-weight:700;font-size:.92rem}
+.facts dd{font-size:1rem}
+
+/* Menu items */
+.menu-item{display:flex;gap:18px;margin-bottom:30px}
+.menu-item .ico{flex:0 0 52px;height:52px;border-radius:14px;background:var(--green);color:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.menu-item h3{font-size:1.25rem;margin-bottom:6px}
+.menu-item p{color:var(--muted)}
+
+/* Table */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--white)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+thead th{background:var(--green);color:#fff;text-align:left;padding:16px 20px;font-family:'Fraunces',serif;font-size:1.02rem}
+tbody td{padding:16px 20px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:#f5f8f6}
+tbody tr:last-child td{border-bottom:0}
+tbody td:first-child{font-weight:700;color:var(--green)}
+.note{color:var(--muted);font-size:.95rem;margin-top:14px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;margin:30px 0 20px}
+.step{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:26px;position:relative}
+.step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--amber);color:#1b1500;font-weight:800;margin-bottom:14px}
+.step h3{font-size:1.1rem;margin-bottom:8px}
+.step p{font-size:.97rem;color:#d3e4db}
+
+/* Tips */
+.tip{display:flex;gap:16px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.tip .tick{flex:0 0 34px;height:34px;border-radius:50%;background:var(--amber);color:#1b1500;font-weight:800;display:flex;align-items:center;justify-content:center}
+.tip h3{font-size:1.08rem;margin-bottom:4px}
+.tip p{color:var(--muted);font-size:.98rem;line-height:1.6}
+
+/* FAQ */
+.faq{max-width:900px}
+details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:18px 56px 18px 22px;font-weight:700;color:var(--green);position:relative;font-size:1.04rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';position:absolute;right:20px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+details[open] summary::after{content:'\2212';background:var(--amber);color:#1b1500}
+details[open] summary{border-bottom:1px solid var(--line)}
+details .ans{padding:18px 22px;color:var(--muted)}
+
+/* Conclusion */
+.concl{background:linear-gradient(135deg,var(--green),var(--green-2));border-radius:20px;padding:56px;color:#e6f0ea}
+.concl h2{color:#fff;margin-bottom:18px;font-size:clamp(1.7rem,3.4vw,2.3rem)}
+.concl p{margin-bottom:16px;max-width:860px}
+
+/* Footer */
+footer.site{background:#08271e;color:#c4d6cd;padding:60px 0 0}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.foot h3{color:#fff;font-size:1.1rem;margin-bottom:14px;font-family:'Fraunces',serif}
+.foot p{font-size:.97rem;line-height:1.7}
+.foot ul{list-style:none}
+.foot li{margin-bottom:8px}
+.foot a{color:#c4d6cd;text-decoration:none;font-weight:600}
+.foot a:hover{color:var(--amber)}
+.social{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.social a{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:background .15s,transform .15s}
+.social a:hover{background:var(--amber);transform:translateY(-3px)}
+.social svg{width:20px;height:20px;fill:#fff}
+.social a:hover svg{fill:#1b1500}
+.copy{border-top:1px solid rgba(255,255,255,.12);padding:20px 0;font-size:.9rem;text-align:center;color:#93aa9e}
+
+@media (max-width:980px){
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .bar{height:60px}
+  .brand{font-size:1.15rem}
+  nav.main a{padding:8px 9px;font-size:.88rem}
+  .hero{padding:56px 0 64px}
+  .g2,.g3,.steps,.foot{grid-template-columns:1fr}
+  section.block{padding:52px 0}
+  .concl{padding:34px 24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- HEADER (single line) -->
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top"><span class="dot"></span>Wetherspoons Guide</a>
+    <nav class="main" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#why">Why Popular</a>
+      <a href="#menu">Menu</a>
+      <a href="#ordering">Ordering</a>
+      <a href="#tips">Tips</a>
+      <a href="#faqs">FAQs</a>
+      <a class="cta" href="#faqs">Get Answers</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO / INTRO -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Wetherspoons: A Complete Guide to Pubs, Food, and Drinks</h1>
+    <p class="lead"><a href="https://wetherspoons-menus.uk/">Wetherspoons</a> is a familiar name in British pub culture, attracting people who want a relaxed place to enjoy a meal, meet friends, or spend time with family. Known for its wide selection of pub locations and value-focused approach, the brand has become a popular option for customers looking for casual dining without the formality of a traditional restaurant.</p>
+    <p class="lead">Whether someone is planning breakfast before work, meeting friends for lunch, or looking for somewhere to eat during a day out, Wetherspoons offers a range of choices to suit different occasions. Its pubs typically combine a casual atmosphere with food, drinks, and convenient ordering options.</p>
+    <p class="lead">This guide explores what Wetherspoons is, what customers can expect from its menu, how ordering works, and what to consider before visiting.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#menu">Explore the Menu</a>
+      <a class="btn btn-ghost" href="#ordering">How Ordering Works</a>
+    </div>
+    <div class="chips">
+      <span class="chip">Breakfast</span><span class="chip">Burgers</span><span class="chip">Pub Classics</span><span class="chip">Vegetarian &amp; Vegan</span><span class="chip">App Ordering</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS -->
+<section class="block" id="about">
+  <div class="wrap split">
+    <div>
+      <div class="sec-head"><h2>What Is Wetherspoons?</h2></div>
+      <div class="prose">
+        <p>Wetherspoons is the commonly used name for J D Wetherspoon, a British pub company founded by Tim Martin in 1979. The business operates pubs across the United Kingdom and is known for offering food and drinks at competitive prices.</p>
+        <p>Its locations can be found in a variety of settings, including town centres, city streets, shopping areas, and some transport hubs. Many pubs occupy buildings with distinctive histories or architectural features, giving individual locations their own character.</p>
+        <p>Unlike restaurants that focus on a single cuisine, Wetherspoons follows a traditional pub model with a broad menu. Customers may visit for breakfast, burgers, classic pub meals, coffee, or an evening drink.</p>
+        <p>The experience can differ between locations, so checking the details of a particular pub is useful before planning a visit.</p>
+      </div>
+    </div>
+    <aside class="facts">
+      <h3>At a Glance</h3>
+      <dl>
+        <div><dt>Official name</dt><dd>J D Wetherspoon</dd></div>
+        <div><dt>Founded by</dt><dd>Tim Martin, 1979</dd></div>
+        <div><dt>Operates in</dt><dd>The United Kingdom</dd></div>
+        <div><dt>Known for</dt><dd>Value-focused pub food and drinks</dd></div>
+        <div><dt>Settings</dt><dd>Town centres, city streets, shopping areas, transport hubs</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- WHY POPULAR -->
+<section class="block alt" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Why Is Wetherspoons So Popular?</h2>
+      <p>Several factors contribute to Wetherspoons' recognition throughout Britain. Its combination of accessible locations, casual dining, and competitive pricing appeals to a broad customer base.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Value for Money</h3>
+        <p>One of the company's best-known selling points is its emphasis on affordable food and drinks. Customers often compare Wetherspoons with other pubs and casual restaurants when deciding where to eat on a budget.</p>
+        <p style="margin-top:10px">Prices and offers can change, however, and the cost of a particular meal depends on the location, menu, and current promotions.</p>
+      </div>
+      <div class="card">
+        <h3>Convenient Locations</h3>
+        <p>Many Wetherspoons pubs are situated in busy areas, making them convenient for people who are shopping, travelling, working, or exploring a town.</p>
+        <p style="margin-top:10px">Some locations also operate in converted historic buildings, which can make a visit interesting beyond the food itself.</p>
+      </div>
+      <div class="card">
+        <h3>A Relaxed Atmosphere</h3>
+        <p>Wetherspoons generally offers an informal setting where customers can enjoy a meal without the expectations of fine dining. It can be suitable for a quick breakfast, a casual lunch, or a longer catch-up with friends.</p>
+      </div>
+      <div class="card">
+        <h3>A Broad Customer Base</h3>
+        <p>The combination of meals, non-alcoholic beverages, coffee, and alcoholic drinks means that different customers may visit for different reasons. Menu suitability and atmosphere vary by location and time of day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="block" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Exploring the Wetherspoons Menu</h2>
+      <p>The <a href="https://wetherspoons-menus.uk/">Wetherspoons menu</a> typically includes a selection of breakfast dishes, pub classics, burgers, lighter meals, snacks, and drinks. The exact range depends on the location and current menu.</p>
+    </div>
+
+    <div class="grid g2" style="gap:10px 48px">
+      <div class="menu-item">
+        <div class="ico" aria-hidden="true">&#9728;</div>
+        <div>
+          <h3>Breakfast Options</h3>
+          <p>Breakfast is an important part of the Wetherspoons dining experience. Depending on the menu available, customers may find traditional cooked breakfasts, lighter breakfast choices, and vegetarian alternatives.</p>
+          <p style="margin-top:8px">A breakfast visit can be convenient for people who want a substantial meal before starting work or exploring a destination. Opening times and breakfast service hours should be checked for the individual pub.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="ico" aria-hidden="true">&#127828;</div>
+        <div>
+          <h3>Burgers and Pub Classics</h3>
+          <p>Burgers are a familiar feature of British pub dining, and Wetherspoons offers burger options alongside other substantial meals. Depending on the current menu, customers may also find dishes such as fish and chips, chicken meals, and other traditional pub favourites.</p>
+          <p style="margin-top:8px">These options appeal to diners looking for a filling meal in a casual environment.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="ico" aria-hidden="true">&#127807;</div>
+        <div>
+          <h3>Vegetarian and Vegan Choices</h3>
+          <p>People following vegetarian or vegan diets should review the current menu to identify suitable meals. Options and ingredients can change, so it is sensible to confirm the latest information rather than rely on an older menu or an online photograph.</p>
+          <p style="margin-top:8px">Customers with allergies should inform staff and consult the restaurant's current allergen information before ordering.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="ico" aria-hidden="true">&#127858;</div>
+        <div>
+          <h3>Snacks and Lighter Meals</h3>
+          <p>Not every visit requires a full meal. Depending on the location, customers may be able to choose smaller dishes, sides, or lighter options when meeting friends or stopping for a short break.</p>
+          <p style="margin-top:8px">This flexibility makes pub dining suitable for different schedules and appetites.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABLE -->
+<section class="block alt" id="overview">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Wetherspoons Food and Drink at a Glance</h2>
+      <p>The following table provides a general overview of the types of options customers may encounter. It is not a guarantee that every item is available at every location.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Examples</th><th>Best Suited For</th></tr></thead>
+        <tbody>
+          <tr><td>Breakfast</td><td>Cooked breakfasts and lighter morning dishes</td><td>Starting the day</td></tr>
+          <tr><td>Burgers</td><td>Different burger styles and sides</td><td>A filling casual meal</td></tr>
+          <tr><td>Pub classics</td><td>Traditional British-style main courses</td><td>Lunch or dinner</td></tr>
+          <tr><td>Vegetarian and vegan food</td><td>Meat-free menu choices</td><td>Customers with dietary preferences</td></tr>
+          <tr><td>Hot drinks</td><td>Tea and coffee</td><td>A short break or casual meeting</td></tr>
+          <tr><td>Soft drinks</td><td>Non-alcoholic beverages</td><td>Refreshment with a meal</td></tr>
+          <tr><td>Alcoholic drinks</td><td>Selected beers, ciders, wines, and other beverages</td><td>Adult customers who choose to drink</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">For the most accurate information, consult the menu for the specific pub you plan to visit.</p>
+  </div>
+</section>
+
+<!-- ORDERING -->
+<section class="block green" id="ordering">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How Ordering at Wetherspoons Works</h2>
+      <p style="color:#d3e4db">Wetherspoons is known for offering app-based ordering at participating locations. Depending on the pub and the service available, customers may be able to order food and drinks using the official Wetherspoons app.</p>
+    </div>
+    <p style="margin-bottom:6px">The general process is straightforward.</p>
+    <div class="steps">
+      <div class="step"><h3>Find a table</h3><p>Find a table and check the instructions displayed at the location.</p></div>
+      <div class="step"><h3>Select your pub</h3><p>If app ordering is available, select the correct pub and table number in the official app.</p></div>
+      <div class="step"><h3>Choose your items</h3><p>Browse the available menu and choose your items.</p></div>
+      <div class="step"><h3>Pay</h3><p>Follow the payment instructions.</p></div>
+    </div>
+    <p>Orders are then prepared and served according to the pub's procedures. Customers should make sure they have selected the correct location and table to avoid sending an order to the wrong place.</p>
+    <p style="margin-top:14px">Traditional ordering arrangements may differ between locations and circumstances. If you are unsure how to order, ask a member of staff for assistance.</p>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="block" id="tips">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Tips for Getting the Most From Your Visit</h2>
+      <p>A little preparation can make a Wetherspoons visit more convenient, particularly during busy periods.</p>
+    </div>
+    <div class="grid g3">
+      <div class="tip"><span class="tick">&#10003;</span><div><h3>Check the menu beforehand</h3><p>Reviewing the current menu can help you identify suitable dishes and estimate your spending.</p></div></div>
+      <div class="tip"><span class="tick">&#10003;</span><div><h3>Confirm opening hours</h3><p>Opening times and food service hours can differ between pubs, especially on public holidays.</p></div></div>
+      <div class="tip"><span class="tick">&#10003;</span><div><h3>Visit outside peak periods if possible</h3><p>Popular locations may become busy during breakfast, lunchtime, evenings, and weekends. A quieter time may provide a more relaxed experience.</p></div></div>
+      <div class="tip"><span class="tick">&#10003;</span><div><h3>Check available offers</h3><p>Promotions can change, so look at the current menu or official information rather than assuming an offer is still active.</p></div></div>
+      <div class="tip"><span class="tick">&#10003;</span><div><h3>Consider dietary requirements</h3><p>Check allergen information and ask staff if you need clarification about ingredients or food preparation.</p></div></div>
+      <div class="tip"><span class="tick">&#10003;</span><div><h3>Choose the right location</h3><p>If you are meeting friends or travelling, consider accessibility, seating, transport links, and the pub's facilities.</p></div></div>
+    </div>
+    <p style="margin-top:26px">These simple steps can help you choose a location and meal that fit your plans.</p>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="block alt" id="value">
+  <div class="wrap">
+    <div class="sec-head"><h2>Is Wetherspoons Good Value for Money?</h2></div>
+    <div class="prose">
+      <p>Wetherspoons has a reputation for value-focused pub dining, but whether it represents good value depends on individual priorities.</p>
+      <p>Customers who want an affordable, informal meal may appreciate its pricing approach and varied menu. People who prioritise an elaborate dining experience, highly personalised service, or a particular atmosphere may prefer a different type of restaurant.</p>
+      <p>It is useful to compare current menu prices, portion expectations, available offers, and location convenience before making a decision. The lowest-priced option is not necessarily the best choice for every customer, and prices can differ between locations.</p>
+      <div class="callout"><strong>In short:</strong> Wetherspoons is best understood as a casual pub option that aims to combine food, drinks, and convenience at competitive prices.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DAYPARTS -->
+<section class="block" id="daytime">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Wetherspoons for Breakfast, Lunch, and Dinner</h2>
+      <p>One reason the brand attracts repeat visits is that its pubs can serve different purposes throughout the day.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card"><h3>Morning</h3><p>In the morning, customers may stop for breakfast and coffee before work or travel.</p></div>
+      <div class="card"><h3>Lunchtime</h3><p>Around lunchtime, a pub can provide a convenient place to meet colleagues or take a break from shopping.</p></div>
+      <div class="card"><h3>Evening</h3><p>In the evening, customers may choose a main meal or meet friends in a relaxed setting.</p></div>
+    </div>
+    <div class="prose" style="margin-top:28px">
+      <p>The suitability of a particular pub depends on its opening hours, menu, location, and atmosphere. Families and groups should also check any relevant age policies and venue-specific arrangements before visiting.</p>
+      <p>For people visiting an unfamiliar town, a conveniently located pub can be a practical dining choice when time and budget are important considerations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="block" id="conclusion" style="padding-top:0">
+  <div class="wrap">
+    <div class="concl">
+      <h2>Conclusion</h2>
+      <p>Wetherspoons has established a recognisable position in British pub culture through its broad food and drink selection, casual atmosphere, and focus on value. From breakfast and coffee to burgers and traditional pub meals, it offers options for different occasions throughout the day.</p>
+      <p>The best experience depends on choosing the right location, checking current prices and menus, and understanding the available ordering methods. Customers with dietary requirements should also review up-to-date allergen information before placing an order.</p>
+      <p>Whether you are planning a quick breakfast, an affordable lunch, or an informal meeting with friends, Wetherspoons can be a convenient option to consider. Checking official information before travelling will help you make a more informed choice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block alt" id="faqs">
+  <div class="wrap">
+    <div class="sec-head"><h2>Frequently Asked Questions (FAQs)</h2></div>
+    <div class="faq">
+      <details><summary>1. What is Wetherspoons?</summary><div class="ans">Wetherspoons is the common name for J D Wetherspoon, a British pub company that operates venues serving food and drinks across the United Kingdom.</div></details>
+      <details><summary>2. Who founded Wetherspoons?</summary><div class="ans">Tim Martin founded the business in 1979. It subsequently grew into a well-known pub operator in Britain.</div></details>
+      <details><summary>3. What food does Wetherspoons serve?</summary><div class="ans">Its menu commonly includes breakfast dishes, burgers, traditional pub meals, lighter options, and vegetarian choices. Availability varies by location and menu updates.</div></details>
+      <details><summary>4. Does Wetherspoons serve breakfast?</summary><div class="ans">Many locations offer breakfast options, but opening times and breakfast service hours can vary. Check the specific pub before visiting.</div></details>
+      <details><summary>5. Can customers order using the Wetherspoons app?</summary><div class="ans">App-based ordering is available at participating locations. Customers should use the official app, select the correct pub, and follow the instructions provided at their table.</div></details>
+      <details><summary>6. Does Wetherspoons offer vegetarian or vegan food?</summary><div class="ans">Vegetarian and vegan options may be available. Customers should consult the current menu and confirm ingredients if they have specific dietary requirements.</div></details>
+      <details><summary>7. Does Wetherspoons provide allergen information?</summary><div class="ans">Customers should consult the latest allergen information and speak to staff before ordering if they have an allergy or intolerance. Recipes and preparation arrangements may change.</div></details>
+      <details><summary>8. Is Wetherspoons affordable?</summary><div class="ans">The company is known for its value-focused approach. Whether a meal is affordable depends on the items selected, current prices, location, and individual budget.</div></details>
+      <details><summary>9. Are all Wetherspoons pubs the same?</summary><div class="ans">No. Menus, opening hours, facilities, building layouts, and atmosphere can vary between locations.</div></details>
+      <details><summary>10. How can I find a Wetherspoons near me?</summary><div class="ans">Use the official J D Wetherspoon website to locate a pub and check its address, opening hours, menu, and other available details before travelling.</div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Wetherspoons Guide</h3>
+        <p>A complete guide to Wetherspoons pubs, food, and drinks: what to expect from the menu, how ordering works, and how to plan a better visit.</p>
+        <div class="social" style="margin-top:18px">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.5-3.4h-3.3V8.3c0-1 .4-1.7 1.8-1.7h1.6V3.5c-.3 0-1.3-.1-2.4-.1-2.5 0-4.1 1.5-4.1 4.2v2.8H7.6v3.4h2.8V22h3.1z"/></svg></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.2 2.5h3.1l-6.8 7.8 8 11.2h-6.3l-4.9-6.6-5.7 6.6H2.5l7.3-8.4L2.1 2.5h6.4l4.4 6.1 5.3-6.1zm-1.1 17.1h1.7L7.3 4.3H5.5l11.6 15.3z"/></svg></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#about">What Is Wetherspoons?</a></li>
+          <li><a href="#why">Why It's Popular</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#ordering">Ordering</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>More</h3>
+        <ul>
+          <li><a href="#tips">Visit Tips</a></li>
+          <li><a href="#value">Value for Money</a></li>
+          <li><a href="#daytime">Breakfast, Lunch &amp; Dinner</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">&copy; 2026 Wetherspoons Guide. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
